@@ -1,0 +1,41 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-elyei-950: #0a0a0a;
+  --color-rasta-green: #009B3A;
+  --color-rasta-yellow: #FED100;
+  --color-rasta-red: #CE1126;
+}
+
+body {
+  margin: 0;
+  background-color: #000000; /* Fondo negro absoluto */
+  color: #ffffff; /* Texto blanco base */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Fuente limpia y moderna */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Scrollbar personalizado (opcional pero recomendado para el estilo dark) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Selección de texto con toque Rasta */
+::selection {
+  background-color: var(--color-rasta-yellow);
+  color: #000000;
+}
