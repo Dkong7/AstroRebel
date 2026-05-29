@@ -29,7 +29,7 @@ const Contact = () => {
     const mailtoBody = encodeURIComponent(`Nombre / Empresa: ${formData.name}\nMotivo: ${formData.subject}\n\nMensaje:\n${formData.message}\n\n--- Enviado desde astro-rebel.com`);
     
     // Abrir el cliente de correo del usuario
-    window.location.href = `mailto:jaramilloleomusic@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+    window.location.href = `mailto:jaramilloleomusic@gmail.com,astrorebelmusic@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
   };
 
   const getButtonStyle = () => {

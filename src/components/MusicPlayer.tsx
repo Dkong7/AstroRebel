@@ -7,8 +7,8 @@ import { useTheme } from '../context/ThemeContext';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const FALLBACK_TRACKS = [
-    { id: '1', titulo: "AMOR BONITO MIX", artista: "LEO JARAMILLO", url_audio: "/AMOR_BONITO_MIX_22_ABRIL_48_24.wav", url_cover_plato: "/amorBonitoPortada.png", url_cover_square: "/portadaAmorBonitoB.png" },
-    { id: '2', titulo: "RAIZ Y FUEGO", artista: "LEO JARAMILLO", url_audio: "/RAIZ_Y_FUEGO.wav", url_cover_plato: "/raiz_y_fuego_cover.png", url_cover_square: "/raiz_y_fuego_cover.png", isPreview: true },
+    { id: '1', titulo: "AMOR BONITO MIX", artista: "LEO JARAMILLO", url_audio: "/amor_bonito_final.wav", url_cover_plato: "/amorBonitoPortada.png", url_cover_square: "/portadaAmorBonitoB.png" },
+    { id: '2', titulo: "RAIZ Y FUEGO", artista: "LEO JARAMILLO", url_audio: "/RAIZ_Y_FUEGO_FINAL.wav", url_cover_plato: "/raiz_y_fuego_cover.png", url_cover_square: "/raiz_y_fuego_cover.png", isPreview: true },
     { id: '3', titulo: "QUERER VOLVER", artista: "LEO JARAMILLO", url_audio: "/QUERER_VOLVER.wav", url_cover_plato: "/QUERER_VOLVER_cover.png", url_cover_square: "/QUERER_VOLVER_cover.png", isPreview: true }
 ];
 
