@@ -1,14 +1,13 @@
-﻿import React from 'react';
+import React from 'react';
 import { useTheme } from '../context/ThemeContext';
 
 const Aliados = () => {
   const { theme } = useTheme();
 
   const partners = [
-    { name: 'Basswalk', logo: '/basswalk.svg', url: 'https://basswalk.com' },
     { name: 'Mes del Reggae', logo: '/mesreggae.svg', url: 'https://mesdelreggae.com' },
     { name: 'Willow Tree', logo: '/willow.svg', url: 'https://www.thisiswillowtree.com' },
-    { name: 'Traif', logo: '/traif.svg', url: 'http://209.126.77.41:8095' },
+    { name: 'Traif', logo: '/traif.svg', url: 'https://traif.duckdns.org/' },
   ];
 
   return (
@@ -22,7 +21,7 @@ const Aliados = () => {
           </span>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 items-center">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 items-center">
           {partners.map((partner) => (
             <a
               key={partner.name}

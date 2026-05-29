@@ -16,8 +16,6 @@ const VideoHighlight = ({ videoId, autoPlay = false, controls = false }: VideoHi
 
   const getContainerStyle = () => {
     switch (theme) {
-      case 'orange':
-        return 'border-orange-500/50 shadow-[0_0_50px_rgba(234,88,12,0.25)] hover:shadow-[0_0_70px_rgba(234,88,12,0.4)]';
       case 'green':
         return 'border-green-500/50 shadow-[0_0_50px_rgba(22,163,74,0.25)] hover:shadow-[0_0_70px_rgba(22,163,74,0.4)]';
       case 'white':
@@ -33,8 +31,7 @@ const VideoHighlight = ({ videoId, autoPlay = false, controls = false }: VideoHi
       
       {/* Fondo decorativo dinámico */}
       <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[80%] opacity-20 blur-[100px] -z-10 rounded-full
-          ${theme === 'orange' ? 'bg-orange-900' : 
-            theme === 'green' ? 'bg-green-900' : 
+          ${theme === 'green' ? 'bg-green-900' : 
             theme === 'white' ? 'bg-gray-300' : 'bg-yellow-900'}`} 
       />
 

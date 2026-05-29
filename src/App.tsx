@@ -1,4 +1,4 @@
-﻿import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import { LanguageProvider } from "./context/LanguageContext";
 import { ThemeProvider } from "./context/ThemeContext"; // Importación necesaria para los colores
@@ -9,6 +9,7 @@ import Music from "./pages/Musica";
 import Tour from "./pages/Tour";
 import Store from "./pages/Store";
 import Bio from "./pages/Bio";
+import Contacto from "./pages/Contacto";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
               <Route path="/conciertos" element={<Tour />} />
               <Route path="/tienda" element={<Store />} />
               <Route path="/biografia" element={<Bio />} />
+              <Route path="/contacto" element={<Contacto />} />
             </Routes>
           </div>
         </Router>

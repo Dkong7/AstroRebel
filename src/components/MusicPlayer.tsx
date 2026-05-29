@@ -7,9 +7,9 @@ import { useTheme } from '../context/ThemeContext';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const FALLBACK_TRACKS = [
-    { id: '1', titulo: "AMOR BONITO MIX", artista: "LEO JARAMILLO", url_audio: "/AMOR_BONITO_MIX_22_ABRIL_48_24.wav", url_cover_plato: "/amorBonitoPortada.png", url_cover_square: "/portadaAmorBonito.jpg" },
-    { id: '2', titulo: "RAIZ Y FUEGO", artista: "LEO JARAMILLO", url_audio: "/RAIZ_Y_FUEGO.wav", url_cover_plato: "/raiz_y_fuego_cover.png", url_cover_square: "/raiz_y_fuego_cover.png" },
-    { id: '3', titulo: "QUERER VOLVER", artista: "LEO JARAMILLO", url_audio: "/QUERER_VOLVER.wav", url_cover_plato: "/QUERER_VOLVER_cover.png", url_cover_square: "/QUERER_VOLVER_cover.png" }
+    { id: '1', titulo: "AMOR BONITO MIX", artista: "LEO JARAMILLO", url_audio: "/AMOR_BONITO_MIX_22_ABRIL_48_24.wav", url_cover_plato: "/amorBonitoPortada.png", url_cover_square: "/portadaAmorBonitoB.png" },
+    { id: '2', titulo: "RAIZ Y FUEGO", artista: "LEO JARAMILLO", url_audio: "/RAIZ_Y_FUEGO.wav", url_cover_plato: "/raiz_y_fuego_cover.png", url_cover_square: "/raiz_y_fuego_cover.png", isPreview: true },
+    { id: '3', titulo: "QUERER VOLVER", artista: "LEO JARAMILLO", url_audio: "/QUERER_VOLVER.wav", url_cover_plato: "/QUERER_VOLVER_cover.png", url_cover_square: "/QUERER_VOLVER_cover.png", isPreview: true }
 ];
 
 const MusicPlayer = () => {
@@ -83,8 +83,17 @@ const MusicPlayer = () => {
 
   const onTimeUpdate = () => {
     if (audioRef.current) {
+      if (track.isPreview && audioRef.current.currentTime >= 30) {
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+        setIsPlaying(false);
+        handleTrackChange((currentTrack + 1) % tracks.length);
+        return;
+      }
       setCurrentTime(audioRef.current.currentTime);
-      if (!isNaN(audioRef.current.duration)) setDuration(audioRef.current.duration);
+      if (!isNaN(audioRef.current.duration)) {
+        setDuration(track.isPreview ? Math.min(audioRef.current.duration, 30) : audioRef.current.duration);
+      }
     }
   };
 
@@ -118,7 +127,10 @@ const MusicPlayer = () => {
 
             <div className="flex flex-col w-full md:w-1/2 justify-center">
                 <div className="text-center md:text-left mb-6 md:mb-8">
-                    <h2 className={`text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tighter mb-1 md:mb-2 ${themeColors.text}`}>{track.titulo}</h2>
+                    <h2 className={`text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tighter mb-1 md:mb-2 ${themeColors.text} flex flex-wrap items-center justify-center md:justify-start gap-3`}>
+                        {track.titulo}
+                        {track.isPreview && <span className="text-[10px] md:text-xs bg-yellow-500 text-black px-2 py-1 rounded-md align-middle font-bold tracking-widest whitespace-nowrap">PREVIEW 30s</span>}
+                    </h2>
                     <p className="text-xs md:text-sm font-bold uppercase tracking-[0.5em] opacity-40">{track.artista}</p>
                 </div>
 
@@ -148,7 +160,10 @@ const MusicPlayer = () => {
                         <button key={t.id} onClick={() => handleTrackChange(i)} 
                             className={`flex justify-between items-center p-3 md:p-4 rounded-xl md:rounded-2xl transition-all border
                             ${currentTrack === i ? `bg-white/10 border-white/20 font-bold ${themeColors.text}` : 'bg-transparent border-transparent opacity-30 hover:bg-white/5'}`}>
-                            <span className="text-xs md:text-sm uppercase tracking-widest truncate">{t.titulo}</span>
+                            <span className="text-xs md:text-sm uppercase tracking-widest truncate">
+                                {t.titulo}
+                                {t.isPreview && <span className="ml-2 text-[8px] md:text-[10px] bg-yellow-500/20 text-yellow-500 px-1.5 py-0.5 rounded border border-yellow-500/30">PREVIEW</span>}
+                            </span>
                         </button>
                     ))}
                 </div>

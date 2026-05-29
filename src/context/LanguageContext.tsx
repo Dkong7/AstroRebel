@@ -1,4 +1,4 @@
-﻿import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, { createContext, useContext, useState, ReactNode } from "react";
 
 type Language = "ES" | "EN";
 
@@ -44,7 +44,11 @@ const translations: Record<Language, Record<string, string>> = {
     add_to_cart: "AÑADIR AL CARRITO",
     pay_mp: "PAGAR CON MERCADO PAGO",
     close: "CERRAR",
-    tickets: "TICKETS"
+    tickets: "TICKETS",
+    contact: "CONTACTO",
+    theme_black: "NEGRO",
+    theme_green: "VERDE",
+    theme_white: "BLANCO"
   },
   EN: {
     home: "HOME",
@@ -79,7 +83,11 @@ const translations: Record<Language, Record<string, string>> = {
     add_to_cart: "ADD TO CART",
     pay_mp: "PAY WITH MERCADO PAGO",
     close: "CLOSE",
-    tickets: "TICKETS"
+    tickets: "TICKETS",
+    contact: "CONTACT",
+    theme_black: "BLACK",
+    theme_green: "GREEN",
+    theme_white: "WHITE"
   },
 };
 

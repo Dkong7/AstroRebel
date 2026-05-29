@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
-export type Theme = 'black' | 'orange' | 'green' | 'white';
+export type Theme = 'black' | 'green' | 'white';
 
 interface ThemeContextType {
   theme: Theme;
@@ -20,13 +20,6 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
 
   const getThemeStyles = (currentTheme: Theme) => {
     switch (currentTheme) {
-      case 'orange':
-        return {
-          bg: 'bg-gradient-to-br from-orange-700 via-red-600 to-red-900',
-          text: 'text-white',
-          accent: 'text-orange-200',
-          gradientBottom: 'from-orange-400 via-white to-orange-400'
-        };
       case 'green':
         return {
           bg: 'bg-gradient-to-br from-green-800 via-emerald-700 to-green-950',
@@ -57,7 +50,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     const body = document.body;
     body.className = '';
-    const colorMap = { white: '#f5f5f4', orange: '#c2410c', green: '#166534', black: '#000000' };
+    const colorMap: Record<Theme, string> = { white: '#f5f5f4', green: '#166534', black: '#000000' };
     body.style.backgroundColor = colorMap[theme] || '#000000';
   }, [theme]);
 
